@@ -13,7 +13,8 @@ use Observer\ObserverExampleOne;
 use Observer\ObserverExampleTwo;
 
 /**
- * 观察者模式：
+ * php观察者模式：
+ *
  * 当一个对象的状态发生改变时
  * 所有依赖于它的对象都得到通知并被自动更新
  * 观察者观察被观察者，被观察者通知观察者

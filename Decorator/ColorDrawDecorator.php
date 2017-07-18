@@ -4,6 +4,7 @@ namespace Decorator;
 class ColorDrawDecorator implements DrawDecorator
 {
     protected $color;
+
     function __construct($color = 'red')
     {
         $this->color = $color;

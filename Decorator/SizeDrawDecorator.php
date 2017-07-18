@@ -4,6 +4,7 @@ namespace Decorator;
 class SizeDrawDecorator implements DrawDecorator
 {
     protected $size;
+
     function __construct($size = '14px')
     {
         $this->size = $size;
