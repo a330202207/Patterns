@@ -1,4 +1,5 @@
 <?php
+
 // 注册自加载
 spl_autoload_register('autoload');
 
