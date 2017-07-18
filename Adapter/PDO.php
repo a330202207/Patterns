@@ -1,11 +1,12 @@
 <?php
-namespace Adapter\Database;
+namespace Adapter;
 
 use Adapter\Database;
 
 class PDO implements Database
 {
     protected $conn;
+
     function connect($host, $user, $passwd, $dbname)
     {
         $conn = new \PDO("mysql:host=$host;dbname=$dbname", $user, $passwd);

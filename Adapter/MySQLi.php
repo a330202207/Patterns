@@ -1,5 +1,5 @@
 <?php
-namespace Adapter\Database;
+namespace Adapter;
 
 use Adapter\Database;
 
