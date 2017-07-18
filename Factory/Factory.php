@@ -6,7 +6,7 @@ class Factory
 	
 	static function creactDatabase()
 	{
-		$db = new Database;
+		$db = new Database();
 		return $db;
 	}
 }
