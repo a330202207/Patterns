@@ -4,17 +4,22 @@ spl_autoload_register('autoload');
 
 function autoload($class)
 {
-  require dirname($_SERVER['SCRIPT_FILENAME']) . '//..//' . str_replace('\\', '/', $class) . '.php';
+    require __DIR__ . '//..//' . str_replace('\\', '/', $class) . '.php';
 }
 
-
-
-use Singleton\Database;
+use Singleton\Singleton;
 
 /**
-*
-* 无论调用多少次，实际上到数据库只有一次连接
+* 单例模式：
+* 单例类只能有一个实例
+* 单例类必须自己创建自己的唯一实例
+* 单例类必须给所有其他对象提供这一实例
 */
-$db = Database::getInstance();
-$db = \Singleton\Database::getInstance();
-$db = \Singleton\Database::getInstance();
+$instance = Singleton::getInstance();
+
+//无论调用多少次，实际上只实例了一次
+$instance->test();
+$instance->test();
+
+// clone对象试试
+$dbClone = clone $instance;
