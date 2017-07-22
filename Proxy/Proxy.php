@@ -1,17 +1,50 @@
 <?php
 namespace Proxy;
 
-class Proxy implements IUserProxy
+
+use Exception;
+
+/**
+ * 代理工厂
+ */
+class Proxy
 {
-    function getUserName($id)
+    /**
+     * 产品生产线对象
+     */
+    private $_shoes;
+
+    /**
+     * 产品生产线类型
+     */
+    private $_shoesType;
+
+    /**
+     * 构造函数.
+     */
+    public function __construct($shoesType)
     {
-        $db = Factory::getDatabase('slave');
-        $db->query("select name from user where id =$id limit 1");
+        $this->_shoesType = $shoesType;
     }
 
-    function setUserName($id, $name)
+    /**
+     * 生产
+     */
+    public function product()
     {
-        $db = Factory::getDatabase('master');
-        $db->query("update user set name = $name where id =$id limit 1");
+        switch ($this->_shoesType) {
+            case 'sport':
+                echo "我可以偷点工减点料";
+                $this->_shoes = new ShoesSport();
+                break;
+            case 'skateboard':
+                echo "我可以偷点工减点料";
+                $this->_shoes = new ShoesSkateboard();
+                break;
+            default:
+                throw new Exception("shoes type is not available", 404);
+                break;
+        }
+        $this->_shoes->product();
     }
 }
