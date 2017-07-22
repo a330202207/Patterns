@@ -13,7 +13,6 @@ use Decorator\ColorDrawDecorator;
 use Decorator\SizeDrawDecorator;
 
 /**
- * 
  * php装饰器模式
  *
  * 动态的添加修改类的功能
